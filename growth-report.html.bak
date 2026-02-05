@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成长周报 - 第1周</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #F8FAFC;
+            color: #1E3A8A;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: #FFFFFF;
+            padding: 48px 80px 32px;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .badge {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1E40AF;
+        }
+
+        .week-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748B;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E3A8A;
+            font-family: 'Fira Sans', sans-serif;
+            margin-bottom: 16px;
+        }
+
+        .accent-bar {
+            width: 60px;
+            height: 4px;
+            background: #3B82F6;
+            border-radius: 2px;
+        }
+
+        /* Section */
+        .section {
+            padding: 0 80px 32px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E40AF;
+            margin-bottom: 24px;
+        }
+
+        .subsection-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 16px;
+            margin-top: 24px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .stat-value.blue { color: #1E3A8A; }
+        .stat-value.red { color: #DC2626; }
+        .stat-value.orange { color: #F59E0B; }
+
+        /* Decision List */
+        .decision-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .decision-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .decision-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .decision-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+
+        .decision-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1E293B;
+            flex: 1;
+        }
+
+        .decision-meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .decision-id {
+            font-size: 11px;
+            font-family: 'Fira Code', monospace;
+            color: #94A3B8;
+            background: #F1F5F9;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .decision-type {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .decision-type.life {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .decision-type.important {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .decision-type.daily {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .risk-badge {
+            font-size: 14px;
+        }
+
+        .decision-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .detail-item {
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        .detail-item strong {
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .emotion-bar {
+            margin: 12px 0;
+        }
+
+        .emotion-label {
+            font-size: 12px;
+            color: #64748B;
+            margin-bottom: 4px;
+        }
+
+        .emotion-track {
+            height: 6px;
+            background: #E5E7EB;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .emotion-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .emotion-fill.low { background: #22C55E; }
+        .emotion-fill.medium { background: #F59E0B; }
+        .emotion-fill.high { background: #EF4444; }
+
+        /* Status Section */
+        .status-section {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .current-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-badge {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .status-badge.pending { background: #F1F5F9; color: #64748B; }
+        .status-badge.in_progress { background: #DBEAFE; color: #1E40AF; }
+        .status-badge.accepted { background: #DCFCE7; color: #166534; }
+        .status-badge.rejected { background: #FEE2E2; color: #991B1B; }
+        .status-badge.completed { background: #D1FAE5; color: #065F46; }
+
+        .status-emoji {
+            font-size: 16px;
+        }
+
+        .status-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #E5E7EB;
+            background: #FFFFFF;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .action-btn:hover {
+            background: #F8FAFC;
+            border-color: #CBD5E1;
+        }
+
+        .action-btn.primary {
+            background: #3B82F6;
+            color: #FFFFFF;
+            border-color: #3B82F6;
+        }
+
+        .action-btn.primary:hover {
+            background: #2563EB;
+            border-color: #2563EB;
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Required Actions */
+        .required-actions {
+            margin-top: 12px;
+            padding: 12px;
+            background: #FFFBEB;
+            border: 1px solid #F59E0B;
+            border-radius: 8px;
+        }
+
+        .actions-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #92400E;
+            margin-bottom: 8px;
+        }
+
+        .actions-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .action-item {
+            display: flex;
+            align-items: start;
+            gap: 8px;
+            font-size: 13px;
+            color: #78350F;
+            margin-bottom: 4px;
+        }
+
+        .action-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .action-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #F59E0B;
+            border-radius: 4px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-checkbox.checked {
+            background: #F59E0B;
+            position: relative;
+        }
+
+        .action-checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            color: #FFFFFF;
+            font-size: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            margin-top: 12px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #64748B;
+            margin-bottom: 4px;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: #E5E7EB;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        /* Status Flow */
+        .status-flow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding: 12px;
+            background: #F8FAFC;
+            border-radius: 8px;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: #FFFFFF;
+            color: #64748B;
+        }
+
+        .flow-step.active {
+            background: #3B82F6;
+            color: #FFFFFF;
+        }
+
+        .flow-arrow {
+            color: #94A3B8;
+            font-size: 12px;
+        }
+
+        /* Behavior Card */
+        .behavior-card {
+            background: #EFF6FF;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .behavior-text {
+            font-size: 16px;
+            color: #166534;
+            font-weight: 500;
+        }
+
+        /* Metrics Table */
+        .metrics-table {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 200px 150px 1fr;
+            gap: 0;
+            padding: 16px 24px;
+            background: #F8FAFC;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .table-header th {
+            font-size: 14px;
+            font-weight: 700;
+            color: #475569;
+            text-align: left;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 200px 150px 1fr;
+            gap: 0;
+            padding: 16px 24px;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-cell {
+            font-size: 14px;
+            color: #1E293B;
+        }
+
+        .table-cell.muted {
+            color: #64748B;
+        }
+
+        .table-cell.highlight {
+            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .table-cell.highlight.green { color: #166534; }
+        .table-cell.highlight.orange { color: #F59E0B; }
+        .table-cell.highlight.blue { color: #1E40AF; }
+
+        /* Suggestion Card */
+        .suggestion-card {
+            background: #FFFBEB;
+            border: 2px solid #F59E0B;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .suggestion-text {
+            font-size: 16px;
+            color: #78350F;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(90deg, #F1F5F9 0%, #E2E8F0 100%);
+            padding: 32px 80px 64px;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #64748B;
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: #94A3B8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .header {
+                padding: 32px;
+            }
+
+            .section {
+                padding: 0 32px 32px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .decision-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .decision-details {
+                grid-template-columns: 1fr;
+            }
+
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .footer {
+                padding: 24px 32px 48px;
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .modal-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1E293B;
+            margin-bottom: 16px;
+        }
+
+        .modal-body {
+            margin-bottom: 16px;
+        }
+
+        .modal-textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 12px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .modal-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #E5E7EB;
+            background: #FFFFFF;
+            color: #475569;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .modal-btn.primary {
+            background: #3B82F6;
+            color: #FFFFFF;
+            border-color: #3B82F6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <span class="badge">📊 成长周报</span>
+                <span class="week-label">第1周</span>
+            </div>
+            <h1 class="title">2026-02-02 至 2026-02-08</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="section">
+            <h2 class="section-title">📊 决策追踪</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">本周记录决策</div>
+                    <div class="stat-value blue">1 个</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">进行中决策</div>
+                    <div class="stat-value orange">1 个</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">平均情感占比</div>
+                    <div class="stat-value orange">40%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decision List with Actions -->
+        <div class="section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h3 class="subsection-title">决策管理</h3>
+                <button class="create-btn" onclick="openCreateModal()" style="padding: 8px 16px; background: #3B82F6; color: white; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">+ 新建决策</button>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs" style="display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto;">
+                <button class="filter-tab active" onclick="filterDecisions('all')" style="padding: 6px 16px; border: 1px solid #E2E8F0; background: white; border-radius: 6px; cursor: pointer; white-space: nowrap;">全部</button>
+                <button class="filter-tab" onclick="filterDecisions('pending')" style="padding: 6px 16px; border: 1px solid #E2E8F0; background: white; border-radius: 6px; cursor: pointer; white-space: nowrap;">⏳ 待处理</button>
+                <button class="filter-tab" onclick="filterDecisions('in_progress')" style="padding: 6px 16px; border: 1px solid #E2E8F0; background: white; border-radius: 6px; cursor: pointer; white-space: nowrap;">🔄 进行中</button>
+                <button class="filter-tab" onclick="filterDecisions('accepted')" style="padding: 6px 16px; border: 1px solid #E2E8F0; background: white; border-radius: 6px; cursor: pointer; white-space: nowrap;">✅ 已采纳</button>
+                <button class="filter-tab" onclick="filterDecisions('rejected')" style="padding: 6px 16px; border: 1px solid #E2E8F0; background: white; border-radius: 6px; cursor: pointer; white-space: nowrap;">❌ 已拒绝</button>
+                <button class="filter-tab" onclick="filterDecisions('completed')" style="padding: 6px 16px; border: 1px solid #E2E8F0; background: white; border-radius: 6px; cursor: pointer; white-space: nowrap;">🏁 已完成</button>
+            </div>
+
+            <div class="decision-list" id="decision-list">
+                <div class="decision-card">
+                    <div class="decision-header">
+                        <div class="decision-title">考虑在北京买房</div>
+                        <div class="decision-meta">
+                            <span class="decision-id">2026-02-05-da5b</span>
+                            <span class="decision-type life">生命级</span>
+                            <span class="risk-badge">🔴 HIGH</span>
+                        </div>
+                    </div>
+
+                    <div class="decision-details">
+                        <div class="detail-item">
+                            <strong>时间：</strong>2026-02-05 15:35
+                        </div>
+                        <div class="detail-item">
+                            <strong>风险：</strong>HIGH
+                        </div>
+                    </div>
+
+                    <div class="emotion-bar">
+                        <div class="emotion-label">情感因素：40% (结婚需求, 父母期待)</div>
+                        <div class="emotion-track">
+                            <div class="emotion-fill medium" style="width: 40%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Status Section -->
+                    <div class="status-section">
+                        <div class="status-header">
+                            <div class="current-status">
+                                <span class="status-emoji">🔄</span>
+                                <span class="status-badge in_progress">进行中</span>
+                            </div>
+                            <div class="status-actions">
+                                <button class="action-btn" onclick="updateStatus('2026-02-05-da5ba2fb', 'accepted', '决定执行')">✅ 采纳</button>
+                                <button class="action-btn" onclick="updateStatus('2026-02-05-da5ba2fb', 'rejected', '决定放弃')">❌ 拒绝</button>
+                                <button class="action-btn" onclick="openModal('2026-02-05-da5ba2fb', 'note')">📝 添加备注</button>
+                            </div>
+                        </div>
+
+                        <!-- Status Flow -->
+                        <div class="status-flow">
+                            <span class="flow-step">⏳ 待处理</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step active">🔄 进行中</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">✅ 已采纳</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">🏁 已完成</span>
+                        </div>
+
+                        <!-- Required Actions -->
+                        <div class="required-actions">
+                            <div class="actions-title">📋 必要行动清单（生命级决策）</div>
+                            <ul class="actions-list">
+                                <li class="action-item">
+                                    <div class="action-checkbox" onclick="toggleAction(this)"></div>
+                                    <span>列出3个不做的理由</span>
+                                </li>
+                                <li class="action-item">
+                                    <div class="action-checkbox" onclick="toggleAction(this)"></div>
+                                    <span>最坏情况推演（房价下跌、失业等）</span>
+                                </li>
+                                <li class="action-item">
+                                    <div class="action-checkbox" onclick="toggleAction(this)"></div>
+                                    <span>咨询3个不同立场的人</span>
+                                </li>
+                                <li class="action-item">
+                                    <div class="action-checkbox" onclick="toggleAction(this)"></div>
+                                    <span>7天冷静期（进行中）</span>
+                                </li>
+                                <li class="action-item">
+                                    <div class="action-checkbox" onclick="toggleAction(this)"></div>
+                                    <span>检查"责任"主题（是否对他人的期待负责）</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Progress -->
+                        <div class="progress-section">
+                            <div class="progress-label">
+                                <span>完成进度</span>
+                                <span id="progress-text">0%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Behavior Analysis -->
+        <div class="section">
+            <h2 class="section-title">🔍 行为模式分析</h2>
+            <div class="behavior-card">
+                <div class="behavior-text">✅ 本周无明显行为模式重复</div>
+            </div>
+        </div>
+
+        <!-- Metrics Table -->
+        <div class="section">
+            <h2 class="section-title">📈 指标追踪</h2>
+            <div class="metrics-table">
+                <div class="table-header">
+                    <th>指标</th>
+                    <th>本周</th>
+                    <th>说明</th>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell">决策总数</div>
+                    <div class="table-cell highlight blue">1</div>
+                    <div class="table-cell muted">本周记录的决策数量</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell">进行中决策</div>
+                    <div class="table-cell highlight orange">1</div>
+                    <div class="table-cell muted">正在处理的决策</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell">平均情感占比</div>
+                    <div class="table-cell highlight orange">40%</div>
+                    <div class="table-cell muted">所有决策的平均情感因素</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggestions -->
+        <div class="section">
+            <h2 class="section-title">💡 下周建议</h2>
+            <div class="suggestion-card">
+                <div class="suggestion-text">
+                    高风险决策管理：确保完成所有必要行动（列出反对理由、咨询他人、最坏情况推演）
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">生成时间：2026-02-05 16:43</div>
+            <div class="footer-note">基于决策追踪数据和画像元数据自动生成</div>
+        </div>
+    </div>
+
+    <!-- Modal for Note -->
+    <div class="modal" id="noteModal">
+        <div class="modal-content">
+            <div class="modal-header">添加备注</div>
+            <div class="modal-body">
+                <textarea class="modal-textarea" id="noteText" placeholder="输入备注信息..."></textarea>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn" onclick="closeModal()">取消</button>
+                <button class="modal-btn primary" onclick="saveNote()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle action checkbox
+        function toggleAction(element) {
+            element.classList.toggle('checked');
+            updateProgress();
+        }
+
+        // Update progress based on checked actions
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.action-checkbox');
+            const checked = document.querySelectorAll('.action-checkbox.checked');
+            const progress = (checked.length / checkboxes.length) * 100;
+
+            document.getElementById('progress-text').textContent = Math.round(progress) + '%';
+            document.querySelector('.progress-fill').style.width = progress + '%';
+        }
+
+        // Update decision status
+        function updateStatus(decisionId, newStatus, note) {
+            const statusNames = {
+                'pending': '待处理',
+                'in_progress': '进行中',
+                'accepted': '已采纳',
+                'rejected': '已拒绝',
+                'completed': '已完成'
+            };
+
+            alert(`决策状态更新功能\n\n决策ID：${decisionId}\n新状态：${statusNames[newStatus]}\n备注：${note}\n\n⚠️ 此功能需要连接后端API，当前为演示模式。\n\n实际使用命令：\npython decision_tracker.py update-status ${decision_id} --status ${newStatus} --note "${note}"`);
+        }
+
+        // Open modal
+        function openModal(decisionId, type) {
+            document.getElementById('noteModal').classList.add('active');
+            window.currentDecisionId = decisionId;
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('noteModal').classList.remove('active');
+            document.getElementById('noteText').value = '';
+        }
+
+        // Save note
+        function saveNote() {
+            const note = document.getElementById('noteText').value;
+            if (note.trim()) {
+                alert(`备注已保存\n\n决策ID：${window.currentDecisionId}\n备注：${note}\n\n⚠️ 此功能需要连接后端API`);
+            }
+            closeModal();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+{
+  "raw_text": "...（盖洛普报告原文）...",
+  "extracted_at": "2026-02-05T15:28:59Z",
+  "extraction_method": "手动输入",
+  "tested_at": "2014-02-15",
+  "source_file": "/Users/guoru/Library/CloudStorage/OneDrive-个人/文档/个人档案/盖洛普34项优势.pdf",
+  "top_themes": [
+    {
+      "rank": 1,
+      "name": "交往",
+      "name_en": "Woo",
+      "domain": "关系建立",
+      "description": "喜欢与朋友建立亲密关系，渴望深度而非广度"
+    },
+    {
+      "rank": 2,
+      "name": "战略",
+      "name_en": "Strategic",
+      "domain": "战略思维",
+      "description": "能够从混乱中找到路径，看到多种可能性"
+    },
+    {
+      "rank": 3,
+      "name": "责任",
+      "name_en": "Responsibility",
+      "domain": "执行",
+      "description": "对他人的承诺必须兑现，心理上需要完成"
+    },
+    {
+      "rank": 4,
+      "name": "分析",
+      "name_en": "Analytical",
+      "domain": "战略思维",
+      "description": "喜欢寻找原因和理由，认为事物都有因果"
+    },
+    {
+      "rank": 5,
+      "name": "成就",
+      "name_en": "Achiever",
+      "domain": "执行",
+      "description": "每天都要有成就感，喜欢忙碌和完成任务"
+    }
+  ],
+  "domain_scores": {
+    "executing": 22,
+    "influencing": 20,
+    "relationship_building": 28,
+    "strategic_thinking": 30
+  },
+  "all_themes": [
+    {"rank": 1, "name": "交往", "domain": "关系建立"},
+    {"rank": 2, "name": "战略", "domain": "战略思维"},
+    {"rank": 3, "name": "责任", "domain": "执行"},
+    {"rank": 4, "name": "分析", "domain": "战略思维"},
+    {"rank": 5, "name": "成就", "domain": "执行"},
+    {"rank": 6, "name": "信仰", "domain": "执行"},
+    {"rank": 7, "name": "学习", "domain": "战略思维"},
+    {"rank": 8, "name": "回顾", "domain": "战略思维"},
+    {"rank": 9, "name": "审慎", "domain": "执行"},
+    {"rank": 10, "name": "前瞻", "domain": "战略思维"},
+    {"rank": 11, "name": "理念", "domain": "战略思维"},
+    {"rank": 12, "name": "完美", "domain": "影响"},
+    {"rank": 13, "name": "思维", "domain": "战略思维"},
+    {"rank": 14, "name": "专注", "domain": "执行"},
+    {"rank": 15, "name": "个别", "domain": "关系建立"},
+    {"rank": 16, "name": "关联", "domain": "关系建立"},
+    {"rank": 17, "name": "搜集", "domain": "战略思维"},
+    {"rank": 18, "name": "伯乐", "domain": "关系建立"},
+    {"rank": 19, "name": "追求", "domain": "影响"},
+    {"rank": 20, "name": "竞争", "domain": "影响"},
+    {"rank": 21, "name": "纪律", "domain": "执行"},
+    {"rank": 22, "name": "行动", "domain": "影响"},
+    {"rank": 23, "name": "排难", "domain": "执行"},
+    {"rank": 24, "name": "体谅", "domain": "关系建立"},
+    {"rank": 25, "name": "统率", "domain": "影响"},
+    {"rank": 26, "name": "包容", "domain": "关系建立"},
+    {"rank": 27, "name": "和谐", "domain": "关系建立"},
+    {"rank": 28, "name": "自信", "domain": "影响"},
+    {"rank": 29, "name": "统筹", "domain": "执行"},
+    {"rank": 30, "name": "公平", "domain": "执行"},
+    {"rank": 31, "name": "沟通", "domain": "影响"},
+    {"rank": 32, "name": "取悦", "domain": "影响"},
+    {"rank": 33, "name": "积极", "domain": "关系建立"},
+    {"rank": 34, "name": "适应", "domain": "关系建立"}
+  ]
+}

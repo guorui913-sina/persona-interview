@@ -1,0 +1,591 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/guorui913-sina/persona-interview/schemas/persona_schema.json",
+  "title": "Persona Schema",
+  "description": "标准化的人格画像数据格式（persona-interview skill）",
+  "type": "object",
+  "required": ["metadata", "basics", "data_sources"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "画像元数据",
+      "required": ["version", "created_at", "data_sources"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "画像版本号（遵循语义化版本 Semantic Versioning）",
+          "pattern": "^v\\d+\\.\\d+\\.\\d+$",
+          "examples": ["v1.0.0", "v1.2.0", "v2.0.0"]
+        },
+        "version_name": {
+          "type": "string",
+          "description": "版本名称（可选）",
+          "examples": ["访谈版", "三维整合版", "四维整合版"]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间（ISO 8601格式）"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "最后更新时间（ISO 8601格式）"
+        },
+        "next_review_date": {
+          "type": "string",
+          "format": "date",
+          "description": "下次更新建议日期（ISO 8601日期格式）"
+        },
+        "author": {
+          "type": "string",
+          "description": "创建者（AI助手或用户）"
+        },
+        "data_sources": {
+          "type": "array",
+          "description": "数据源列表",
+          "items": {
+            "type": "string",
+            "enum": ["resume", "mbti", "gallup", "interview", "decision_history", "growth_review"]
+          }
+        }
+      }
+    },
+    "basics": {
+      "type": "object",
+      "description": "基本信息",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "姓名"
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["男", "女", "其他"],
+          "description": "性别"
+        },
+        "age": {
+          "type": "integer",
+          "description": "年龄"
+        },
+        "location": {
+          "type": "string",
+          "description": "所在地"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "邮箱"
+        },
+        "phone": {
+          "type": "string",
+          "description": "电话"
+        },
+        "education_level": {
+          "type": "string",
+          "description": "教育水平"
+        }
+      }
+    },
+    "summary": {
+      "type": "string",
+      "description": "一句话画像总结"
+    },
+    "data_sources": {
+      "type": "object",
+      "description": "各数据源的详细数据",
+      "properties": {
+        "resume": {
+          "type": "object",
+          "description": "简历数据",
+          "required": ["parsed_at", "extraction_method"],
+          "properties": {
+            "parsed_at": {
+              "type": "string",
+              "format": "date-time",
+              "description": "解析时间"
+            },
+            "extraction_method": {
+              "type": "string",
+              "description": "提取方法",
+              "enum": ["Claude API", "OpenAI API", "规则提取", "手动输入"]
+            },
+            "source_file": {
+              "type": "string",
+              "description": "源文件路径"
+            },
+            "raw_text": {
+              "type": "string",
+              "description": "原始文本"
+            },
+            "work_history": {
+              "type": "array",
+              "description": "工作经历",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "company": {"type": "string"},
+                  "position": {"type": "string"},
+                  "department": {"type": "string"},
+                  "start_date": {"type": "string"},
+                  "end_date": {"type": "string"},
+                  "location": {"type": "string"},
+                  "description": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                  }
+                }
+              }
+            },
+            "education": {
+              "type": "array",
+              "description": "教育背景",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "school": {"type": "string"},
+                  "major": {"type": "string"},
+                  "degree": {"type": "string"},
+                  "start_date": {"type": "string"},
+                  "end_date": {"type": "string"}
+                }
+              }
+            },
+            "skills": {
+              "type": "array",
+              "description": "技能列表",
+              "items": {"type": "string"}
+            },
+            "expertise_areas": {
+              "type": "object",
+              "description": "专业领域",
+              "properties": {
+                "years": {
+                  "type": "object",
+                  "description": "各领域年限",
+                  "additionalProperties": {"type": "string"}
+                },
+                "industries": {
+                  "type": "array",
+                  "description": "行业",
+                  "items": {"type": "string"}
+                },
+                "core_competencies": {
+                  "type": "array",
+                  "description": "核心能力",
+                  "items": {"type": "string"}
+                }
+              }
+            },
+            "achievements": {
+              "type": "array",
+              "description": "成就",
+              "items": {"type": "string"}
+            },
+            "awards": {
+              "type": "array",
+              "description": "奖项",
+              "items": {"type": "string"}
+            }
+          }
+        },
+        "mbti": {
+          "type": "object",
+          "description": "MBTI数据",
+          "required": ["type", "tested_at"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "MBTI类型",
+              "pattern": "^[EI][NS][TF][JP]$",
+              "examples": ["INTJ", "ENFP", "ISTJ"]
+            },
+            "type_name": {
+              "type": "string",
+              "description": "类型名称",
+              "examples": ["建筑师型", "竞选者型", "物流师型"]
+            },
+            "tested_at": {
+              "type": "string",
+              "format": "date",
+              "description": "测试日期"
+            },
+            "test_method": {
+              "type": "string",
+              "description": "测试方法",
+              "enum": ["8题简版", "93题完整版", "官方测试", "手动输入"]
+            },
+            "dimensions": {
+              "type": "object",
+              "description": "四个维度",
+              "properties": {
+                "EI": {
+                  "type": "object",
+                  "properties": {
+                    "letter": {"type": "string", "enum": ["E", "I"]},
+                    "name": {"type": "string", "enum": ["外向", "内向"]},
+                    "description": {"type": "string"}
+                  }
+                },
+                "SN": {
+                  "type": "object",
+                  "properties": {
+                    "letter": {"type": "string", "enum": ["S", "N"]},
+                    "name": {"type": "string", "enum": ["实感", "直觉"]},
+                    "description": {"type": "string"}
+                  }
+                },
+                "TF": {
+                  "type": "object",
+                  "properties": {
+                    "letter": {"type": "string", "enum": ["T", "F"]},
+                    "name": {"type": "string", "enum": ["思考", "情感"]},
+                    "description": {"type": "string"}
+                  }
+                },
+                "JP": {
+                  "type": "object",
+                  "properties": {
+                    "letter": {"type": "string", "enum": ["J", "P"]},
+                    "name": {"type": "string", "enum": ["判断", "感知"]},
+                    "description": {"type": "string"}
+                  }
+                }
+              }
+            },
+            "strengths": {
+              "type": "array",
+              "description": "优势",
+              "items": {"type": "string"}
+            },
+            "weaknesses": {
+              "type": "array",
+              "description": "劣势",
+              "items": {"type": "string"}
+            },
+            "career_matches": {
+              "type": "array",
+              "description": "职业匹配",
+              "items": {"type": "string"}
+            },
+            "work_style": {
+              "type": "string",
+              "description": "工作风格"
+            }
+          }
+        },
+        "gallup": {
+          "type": "object",
+          "description": "盖洛普优势数据",
+          "required": ["tested_at", "top_themes", "domain_scores"],
+          "properties": {
+            "tested_at": {
+              "type": "string",
+              "format": "date",
+              "description": "测试日期"
+            },
+            "top_themes": {
+              "type": "array",
+              "description": "前5大优势主题",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "rank": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 34,
+                    "description": "排名（1-34）"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "主题名称（中文）",
+                    "examples": ["交往", "战略", "责任", "分析", "成就"]
+                  },
+                  "name_en": {
+                    "type": "string",
+                    "description": "主题名称（英文）",
+                    "examples": ["Woo", "Strategic", "Responsibility", "Analytical", "Achiever"]
+                  },
+                  "domain": {
+                    "type": "string",
+                    "enum": ["执行", "影响", "关系建立", "战略思维"],
+                    "description": "所属领域"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "主题描述"
+                  }
+                }
+              }
+            },
+            "domain_scores": {
+              "type": "object",
+              "description": "四大领域得分",
+              "properties": {
+                "executing": {
+                  "type": "integer",
+                  "description": "执行领域得分"
+                },
+                "influencing": {
+                  "type": "integer",
+                  "description": "影响领域得分"
+                },
+                "relationship_building": {
+                  "type": "integer",
+                  "description": "关系建立领域得分"
+                },
+                "strategic_thinking": {
+                  "type": "integer",
+                  "description": "战略思维领域得分"
+                }
+              }
+            },
+            "all_themes": {
+              "type": "array",
+              "description": "全部34个主题（按得分排序）",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "rank": {"type": "integer"},
+                  "name": {"type": "string"},
+                  "domain": {"type": "string"}
+                }
+              }
+            }
+          }
+        },
+        "interview": {
+          "type": "object",
+          "description": "访谈数据",
+          "required": ["interview_date", "interview_rounds"],
+          "properties": {
+            "interview_date": {
+              "type": "string",
+              "format": "date",
+              "description": "访谈日期"
+            },
+            "interview_rounds": {
+              "type": "integer",
+              "description": "访谈轮数"
+            },
+            "transcript_file": {
+              "type": "string",
+              "description": "访谈记录文件路径"
+            },
+            "core_findings": {
+              "type": "object",
+              "description": "核心发现",
+              "properties": {
+                "core_problem": {
+                  "type": "string",
+                  "description": "核心问题"
+                },
+                "behavioral_patterns": {
+                  "type": "array",
+                  "description": "行为模式",
+                  "items": {"type": "string"}
+                },
+                "contradictions": {
+                  "type": "array",
+                  "description": "矛盾点",
+                  "items": {"type": "string"}
+                },
+                "blind_spots": {
+                  "type": "array",
+                  "description": "盲区",
+                  "items": {"type": "string"}
+                }
+              }
+            },
+            "decision_cases": {
+              "type": "array",
+              "description": "决策案例",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "case": {"type": "string"},
+                  "rational_judgment": {"type": "string"},
+                  "emotional_factors": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                  },
+                  "outcome": {"type": "string"}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "description": "交叉分析结果",
+      "properties": {
+        "strengths": {
+          "type": "array",
+          "description": "核心优势（基于多数据源的交叉验证）",
+          "items": {
+            "type": "object",
+            "properties": {
+              "strength": {"type": "string"},
+              "sources": {
+                "type": "array",
+                "description": "验证来源",
+                "items": {"type": "string"}
+              },
+              "confidence_level": {
+                "type": "string",
+                "enum": ["高", "中", "低"],
+                "description": "置信度"
+              }
+            }
+          }
+        },
+        "weaknesses": {
+          "type": "array",
+          "description": "核心劣势（基于多数据源的交叉验证）",
+          "items": {
+            "type": "object",
+            "properties": {
+              "weakness": {"type": "string"},
+              "sources": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "impact_level": {
+                "type": "string",
+                "enum": ["高", "中", "低"],
+                "description": "影响程度"
+              }
+            }
+          }
+        },
+        "career_directions": {
+          "type": "array",
+          "description": "适合的职业方向",
+          "items": {
+            "type": "object",
+            "properties": {
+              "direction": {"type": "string"},
+              "match_score": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5,
+                "description": "匹配度（1-5星）"
+              },
+              "reason": {"type": "string"}
+            }
+          }
+        },
+        "unsuitable_directions": {
+          "type": "array",
+          "description": "不适合的职业方向",
+          "items": {
+            "type": "object",
+            "properties": {
+              "direction": {"type": "string"},
+              "reason": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "action_guide": {
+      "type": "object",
+      "description": "AI操作指南",
+      "properties": {
+        "when_to_stop": {
+          "type": "array",
+          "description": "何时拦住用户",
+          "items": {
+            "type": "object",
+            "properties": {
+              "trigger": {"type": "string"},
+              "action": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "when_to_push": {
+          "type": "array",
+          "description": "何时推用户一把",
+          "items": {
+            "type": "object",
+            "properties": {
+              "trigger": {"type": "string"},
+              "action": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "keywords_to_monitor": {
+          "type": "array",
+          "description": "需要监控的关键词",
+          "items": {"type": "string"}
+        },
+        "decision_classifications": {
+          "type": "object",
+          "description": "决策分类系统",
+          "properties": {
+            "life_level": {
+              "type": "object",
+              "properties": {
+                "description": {"type": "string"},
+                "threshold": {"type": "string"},
+                "examples": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                },
+                "required_actions": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                }
+              }
+            },
+            "important": {
+              "type": "object",
+              "properties": {
+                "description": {"type": "string"},
+                "threshold": {"type": "string"},
+                "examples": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                },
+                "recommended_actions": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                }
+              }
+            },
+            "daily": {
+              "type": "object",
+              "properties": {
+                "description": {"type": "string"},
+                "threshold": {"type": "string"},
+                "examples": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "version_history": {
+      "type": "array",
+      "description": "版本历史",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {"type": "string"},
+          "version_name": {"type": "string"},
+          "date": {"type": "string", "format": "date"},
+          "changes": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}

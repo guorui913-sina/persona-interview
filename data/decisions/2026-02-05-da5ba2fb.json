@@ -1,0 +1,38 @@
+{
+  "decision_id": "2026-02-05-da5ba2fb",
+  "timestamp": "2026-02-05T15:35:05.530191",
+  "type": "life_level",
+  "description": "考虑在北京买房",
+  "rational_analysis": "房价还在高位，但需要结婚",
+  "emotional_factors": [
+    "结婚需求",
+    "父母期待"
+  ],
+  "emotion_ratio": 0.4,
+  "risk_level": "high",
+  "ai_warning": "情感因素占比高，建议冷静期",
+  "required_actions": [
+    "列出3个不做的理由",
+    "最坏情况推演",
+    "咨询3个不同立场的人",
+    "7天冷静期",
+    "检查'责任'主题"
+  ],
+  "outcome": "rejected",
+  "created_at": "2026-02-05T15:35:05.530191",
+  "updated_at": "2026-02-05T17:26:53.000099",
+  "status_history": [
+    {
+      "timestamp": "2026-02-05T16:53:26.625607",
+      "from_status": "pending",
+      "to_status": "in_progress",
+      "note": "开始7天冷静期，同时咨询3个人"
+    },
+    {
+      "timestamp": "2026-02-05T17:26:53.001341",
+      "from_status": "in_progress",
+      "to_status": "rejected",
+      "note": "已经在2021年初买完了，现在正在出售中，浮亏100万+"
+    }
+  ]
+}

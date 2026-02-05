@@ -1,0 +1,353 @@
+{
+  "metadata": {
+    "version": "v1.2.0",
+    "version_name": "四维整合版",
+    "created_at": "2026-02-05T14:00:00Z",
+    "updated_at": "2026-02-05T16:00:00Z",
+    "next_review_date": "2026-05-05",
+    "author": "Claude AI",
+    "data_sources": ["resume", "mbti", "gallup", "interview"]
+  },
+  "basics": {
+    "name": "郭瑞",
+    "gender": "男",
+    "age": 43,
+    "location": "北京",
+    "email": "guorui913@sina.com",
+    "phone": "185-0081-4551",
+    "education_level": "985硕士，MBA"
+  },
+  "summary": "一个43岁的 INTJ，拥有17年数字化从业经验和强大的战略规划能力，累计帮助公司融资超2000万元，盖洛普测评显示战略思维（30分）和关系建立（28分）为双核心优势，但在涉及自己的重大决策时，情感会劫持理性，导致人生多次重大失误。",
+  "data_sources": {
+    "resume": {
+      "parsed_at": "2026-02-05T14:45:00Z",
+      "extraction_method": "Claude AI (Direct)",
+      "source_file": "/Users/guoru/Library/CloudStorage/OneDrive-个人/文档/个人档案/简历/简历202405.pdf",
+      "raw_text": "...（简历原文）...",
+      "work_history": [
+        {
+          "company": "中国电信集团政企客户事业群",
+          "department": "卫健行业事业部",
+          "position": "高级行业专家",
+          "start_date": "2022",
+          "end_date": "2023",
+          "description": [
+            "负责卫健产研院战略规划相关工作",
+            "负责公共卫生领域解决方案编制及产品研发管理"
+          ]
+        }
+      ],
+      "education": [
+        {
+          "school": "石河子大学",
+          "major": "计算机科学与技术",
+          "degree": "本科",
+          "start_date": "2001",
+          "end_date": "2005"
+        },
+        {
+          "school": "中国人民大学",
+          "major": "工商管理",
+          "degree": "MBA",
+          "start_date": "2021",
+          "end_date": "2023"
+        }
+      ],
+      "skills": [
+        "战略规划",
+        "商业计划书",
+        "市场分析报告",
+        "产品管理",
+        "团队管理"
+      ],
+      "expertise_areas": {
+        "years": {
+          "战略规划": "14年",
+          "产品管理": "12年",
+          "团队管理": "19年"
+        },
+        "industries": ["智慧城市", "智慧医疗", "互联网医疗"],
+        "core_competencies": ["从0到1", "从1到10", "战略规划", "商业拓展"]
+      },
+      "achievements": [
+        "累计帮助公司融资超2000万元",
+        "2019年中国联通系统内唯一5G智慧医疗商业落地项目，3个月内单客户签约300万"
+      ],
+      "awards": [
+        "全国创新创业大赛（2019）一等奖、三等奖",
+        "第二届绽放杯5G应用大赛（2019）三等奖、优秀奖"
+      ]
+    },
+    "mbti": {
+      "type": "INTJ",
+      "type_name": "建筑师型",
+      "tested_at": "2026-02-05",
+      "test_method": "手动输入",
+      "dimensions": {
+        "EI": {
+          "letter": "I",
+          "name": "内向",
+          "description": "从独处中获得能量，喜欢深度思考"
+        },
+        "SN": {
+          "letter": "N",
+          "name": "直觉",
+          "description": "关注全局和可能性，看到未来趋势"
+        },
+        "TF": {
+          "letter": "T",
+          "name": "思考",
+          "description": "决策时依赖逻辑分析，追求客观公正"
+        },
+        "JP": {
+          "letter": "J",
+          "name": "判断",
+          "description": "喜欢计划和组织，追求掌控感"
+        }
+      },
+      "strengths": [
+        "战略思维：能看到全局和长远",
+        "独立性强：能独自做出准确判断",
+        "追求能力：渴望不断提升自己"
+      ],
+      "weaknesses": [
+        "可能过于挑剔：高标准导致对他人的不耐烦",
+        "不擅长情感表达：在涉及情感的决策中容易失措",
+        "可能显得傲慢：知识和能力带来的优越感"
+      ],
+      "career_matches": [
+        "科学家",
+        "工程师",
+        "战略顾问"
+      ],
+      "work_style": "喜欢独立工作，关注长远目标，追求效率和逻辑"
+    },
+    "gallup": {
+      "tested_at": "2014-02-15",
+      "top_themes": [
+        {
+          "rank": 1,
+          "name": "交往",
+          "name_en": "Woo",
+          "domain": "关系建立",
+          "description": "喜欢与朋友建立亲密关系，渴望深度而非广度"
+        },
+        {
+          "rank": 2,
+          "name": "战略",
+          "name_en": "Strategic",
+          "domain": "战略思维",
+          "description": "能够从混乱中找到路径，看到多种可能性"
+        },
+        {
+          "rank": 3,
+          "name": "责任",
+          "name_en": "Responsibility",
+          "domain": "执行",
+          "description": "对他人的承诺必须兑现，心理上需要完成"
+        },
+        {
+          "rank": 4,
+          "name": "分析",
+          "name_en": "Analytical",
+          "domain": "战略思维",
+          "description": "喜欢寻找原因和理由，认为事物都有因果"
+        },
+        {
+          "rank": 5,
+          "name": "成就",
+          "name_en": "Achiever",
+          "domain": "执行",
+          "description": "每天都要有成就感，喜欢忙碌和完成任务"
+        }
+      ],
+      "domain_scores": {
+        "executing": 22,
+        "influencing": 20,
+        "relationship_building": 28,
+        "strategic_thinking": 30
+      }
+    },
+    "interview": {
+      "interview_date": "2026-02-05",
+      "interview_rounds": 14,
+      "transcript_file": "/Users/guoru/Claude/skills/persona-interview/interviews/interview-2026-02-05.md",
+      "core_findings": {
+        "core_problem": "重大决策出现 → 情感因素介入 → 压倒理性 → 决策失误 → 后果严重",
+        "behavioral_patterns": [
+          "脑中逻辑跑通 → 直接投入 → 事后验证",
+          "看标杆案例 → 认为能复制 → 直接投入",
+          "理性决策准确率高，但重大决策时情感会劫持理性"
+        ],
+        "contradictions": [
+          "嘴上说'基于逻辑的深度洞察'，但在重大决策时'感性大于理性'",
+          "说'实事求是'，但在买房、婚姻等决策上没有做充分验证"
+        ],
+        "blind_spots": [
+          "缺乏风险管理系统",
+          "混淆'逻辑自洽'和'客观验证'",
+          "不擅长处理情感类事务",
+          "没有'低成本验证'的方法论"
+        ]
+      },
+      "decision_cases": [
+        {
+          "case": "买房（2020年）",
+          "rational_judgment": "有风险",
+          "emotional_factors": ["结婚需求", "北漂愿望"],
+          "outcome": "浮亏120-130万"
+        },
+        {
+          "case": "结婚",
+          "rational_judgment": "不适合",
+          "emotional_factors": ["父母年迈", "想给老人安慰"],
+          "outcome": "婚姻失败"
+        }
+      ]
+    }
+  },
+  "analysis": {
+    "strengths": [
+      {
+        "strength": "战略思维与分析能力",
+        "sources": ["resume: 战略规划14年", "mbti: INTJ", "gallup: 战略思维30分", "interview: 纯理性判断准确率>2/3"],
+        "confidence_level": "高"
+      },
+      {
+        "strength": "深度关系建立能力",
+        "sources": ["gallup: 关系建立28分", "interview: 擅长一对一深度交流"],
+        "confidence_level": "高"
+      }
+    ],
+    "weaknesses": [
+      {
+        "weakness": "情感管理能力不足",
+        "sources": ["mbti: INTJ天生劣势", "interview: 情感劫持理性", "gallup: 责任主题导致过度承诺"],
+        "impact_level": "高"
+      },
+      {
+        "weakness": "缺乏验证方法论",
+        "sources": ["interview: 脑中逻辑跑通就直接投入", "gallup: 成就主题急于完成任务"],
+        "impact_level": "高"
+      }
+    ],
+    "career_directions": [
+      {
+        "direction": "信息化/数字化战略咨询",
+        "match_score": 5,
+        "reason": "战略规划14年 + 盖洛普战略30分 + INTJ战略思维 = 完美匹配"
+      },
+      {
+        "direction": "深度客户咨询",
+        "match_score": 5,
+        "reason": "盖洛普关系建立28分 + 交往主题排名第1 = 擅长深度一对一关系"
+      }
+    ],
+    "unsuitable_directions": [
+      {
+        "direction": "保险销售",
+        "reason": "盖洛普影响力20分最低 + INTJ劣势 + 保险销售失败经验"
+      }
+    ]
+  },
+  "action_guide": {
+    "when_to_stop": [
+      {
+        "trigger": "用户说'我想做X'（中长期投入）",
+        "action": [
+          "先帮我整理已思考过的内容",
+          "提出好/坏结果供我比对",
+          "必须问的3个问题：验证需求？最坏情况？反对理由？",
+          "引用四维数据：你战略规划14年+盖洛普战略30分，这次有做战略分析吗？"
+        ]
+      },
+      {
+        "trigger": "关键词：结婚、买房、生子、投资、换工作、创业",
+        "action": [
+          "立即启动'风险干预流程'",
+          "直接指出情感占比",
+          "强制执行7天冷静期",
+          "检查'责任'主题：你是不是又在对他人的期待负责？"
+        ]
+      }
+    ],
+    "when_to_push": [
+      {
+        "trigger": "拖延重要任务",
+        "action": [
+          "提醒我：这周你有没有和潜在客户/用户沟通过？",
+          "你上周说的要做的事，进展如何？"
+        ]
+      }
+    ],
+    "keywords_to_monitor": [
+      "买房", "结婚", "生子", "投资", "换工作", "创业",
+      "为了父母", "为了家人", "应该", "必须",
+      "发现了", "新机会", "有个想法"
+    ],
+    "decision_classifications": {
+      "life_level": {
+        "description": "一旦失误，损失>1年收入或需要>1年才能恢复",
+        "threshold": ">1年收入 或 >1年恢复时间",
+        "examples": ["婚姻", "买房", "生子", "职业选择", "创业"],
+        "required_actions": [
+          "列出3个不做的理由",
+          "最坏情况推演",
+          "咨询3个不同立场的人",
+          "7天冷静期",
+          "检查'责任'主题"
+        ]
+      },
+      "important": {
+        "description": "一旦失误，损失<1年收入但需要<1年恢复",
+        "threshold": "<1年收入 且 <1年恢复时间",
+        "examples": ["换项目", "学习新技能", "小额投资<5万"],
+        "recommended_actions": [
+          "列出1-2个不做的理由",
+          "咨询1-2个人",
+          "简单冷静期（1-2天）"
+        ]
+      },
+      "daily": {
+        "description": "损失可控，可快速调整",
+        "threshold": "损失可控",
+        "examples": ["今天学什么", "吃什么", "看什么内容"],
+        "recommended_actions": ["相信直觉"]
+      }
+    }
+  },
+  "version_history": [
+    {
+      "version": "v1.0.0",
+      "version_name": "访谈版",
+      "date": "2026-02-05",
+      "changes": [
+        "首次完整访谈",
+        "建立人格画像基线",
+        "发现核心问题：情感劫持理性"
+      ]
+    },
+    {
+      "version": "v1.1.0",
+      "version_name": "三维整合版",
+      "date": "2026-02-05",
+      "changes": [
+        "整合简历数据",
+        "整合MBTI数据",
+        "发现'知行合一'问题",
+        "发现'从0到1'陷阱"
+      ]
+    },
+    {
+      "version": "v1.2.0",
+      "version_name": "四维整合版",
+      "date": "2026-02-05",
+      "changes": [
+        "整合盖洛普优势测评",
+        "三大评估完美对齐：MBTI+盖洛普+简历",
+        "意外发现：关系建立能力与INTJ标签不一致",
+        "新发现：'责任'主题和'成就'主题的副作用"
+      ]
+    }
+  ]
+}
