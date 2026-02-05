@@ -1,0 +1,24 @@
+# 个人访谈记录（隐私数据，不上传）
+interviews/interview-*.md
+interviews/my-persona*.md
+interviews/CHANGELOG.md
+
+# 保留示例目录
+!interviews/example/
+!interviews/README.md
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 临时文件
+*.tmp
+*.temp
