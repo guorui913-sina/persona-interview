@@ -233,6 +233,6 @@ MIT License - 详见 [LICENSE](LICENSE)
 感谢原作者提供了如此有价值的方法论和灵感。
 
 ### 当前维护者
-- Guo Rui (@huaguoruo) - 基于 hclscut 的灵感，实现并扩展了这个 skill
+- Guo Rui (@guorui913-sina) - 基于 hclscut 的灵感，实现并扩展了这个 skill
 
 感谢所有贡献者和使用者的反馈！
