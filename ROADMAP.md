@@ -229,12 +229,14 @@ python version_comparer.py show --version v1.2
 
 ### Phase 2 交付物汇总
 - [x] 决策追踪系统（`decision_tracker.py`）
+- [x] Web服务器（`decision_server.py`）
+- [x] Web界面（`decision-tracker.html`, `growth-report.html`）
 - [x] 周期性成长回顾（`growth_reviewer.py`）
 - [x] 版本对比分析（`version_comparer.py`）
 - [x] 数据目录结构（`data/decisions/`, `data/reviews/`, `data/versions/`）
-- [x] 使用文档（`docs/phase2-guide.md`）
 
-### 预计完成时间：Week 8
+**完成时间**：2026-02-05
+**详细报告**：[PHASE2_REPORT.md](./PHASE2_REPORT.md)
 
 ---
 
@@ -323,14 +325,15 @@ python version_comparer.py show --version v1.2
 ---
 
 ### Phase 3 交付物汇总
-- [x] 主动风险预警（`risk_monitor.py`）
-- [x] 个性化成长建议（`growth_advisor.py`）
-- [x] 智能对话伙伴（`intelligent_partner.py`）
-- [x] 对话历史数据库
-- [x] RAG检索系统
-- [x] 使用文档（`docs/phase3-guide.md`）
+- [ ] 主动风险预警（`risk_monitor.py`）
+- [ ] 个性化成长建议（`growth_advisor.py`）
+- [ ] 智能对话伙伴（`intelligent_partner.py`）
+- [ ] 对话历史数据库
+- [ ] RAG检索系统
+- [ ] 使用文档（`docs/phase3-guide.md`）
 
-### 预计完成时间：Week 20
+**状态**：⏳ 待开发
+**预计开始时间**：待定
 
 ---
 
