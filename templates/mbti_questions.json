@@ -1,0 +1,214 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "dimension": "EvsI",
+      "direction": "E",
+      "question": "在社交活动中，你通常：",
+      "options": [
+        {"text": "主动介绍自己给陌生人", "score": "E"},
+        {"text": "等待别人介绍", "score": "I"}
+      ]
+    },
+    {
+      "id": 2,
+      "dimension": "EvsI",
+      "direction": "I",
+      "question": "当你需要充电时，你更倾向于：",
+      "options": [
+        {"text": "和朋友聚会聊天", "score": "E"},
+        {"text": "独自待在家里", "score": "I"}
+      ]
+    },
+    {
+      "id": 3,
+      "dimension": "SvsN",
+      "direction": "S",
+      "question": "你更关注：",
+      "options": [
+        {"text": "现实和当下", "score": "S"},
+        {"text": "未来和可能性", "score": "N"}
+      ]
+    },
+    {
+      "id": 4,
+      "dimension": "SvsN",
+      "direction": "N",
+      "question": "你更相信：",
+      "options": [
+        {"text": "确凿的事实", "score": "S"},
+        {"text": "直觉和灵感", "score": "N"}
+      ]
+    },
+    {
+      "id": 5,
+      "dimension": "TvsF",
+      "direction": "T",
+      "question": "做决定时，你更依赖：",
+      "options": [
+        {"text": "逻辑分析", "score": "T"},
+        {"text": "个人价值观", "score": "F"}
+      ]
+    },
+    {
+      "id": 6,
+      "dimension": "TvsF",
+      "direction": "F",
+      "question": "你更重视：",
+      "options": [
+        {"text": "公正和原则", "score": "T"},
+        {"text": "和谐和同情", "score": "F"}
+      ]
+    },
+    {
+      "id": 7,
+      "dimension": "JvsP",
+      "direction": "J",
+      "question": "你更喜欢：",
+      "options": [
+        {"text": "事先计划好", "score": "J"},
+        {"text": "随机应变", "score": "P"}
+      ]
+    },
+    {
+      "id": 8,
+      "dimension": "JvsP",
+      "direction": "P",
+      "question": "你的工作方式是：",
+      "options": [
+        {"text": "按部就班，最后完成", "score": "J"},
+        {"text": " bursts of energy", "score": "P"}
+      ]
+    }
+  ],
+  "types": {
+    "INTJ": {
+      "name": "建筑师",
+      "description": "富有想象力和战略性的思想家",
+      "strengths": ["战略思维", "独立性强", "追求能力"],
+      "weaknesses": ["可能过于挑剔", "不擅长情感表达", "可能显得傲慢"],
+      "career_matches": ["科学家", "工程师", "战略顾问"],
+      "work_style": "喜欢独立工作，关注长远目标，追求效率和逻辑"
+    },
+    "INTP": {
+      "name": "逻辑学家",
+      "description": "具有创新性的发明家，对知识有着止渴的渴望",
+      "strengths": ["逻辑分析", "创造性思维", "客观公正"],
+      "weaknesses": ["可能过于抽象", "不擅长执行", "可能显得疏离"],
+      "career_matches": ["研究员", "程序员", "分析师"],
+      "work_style": "喜欢解决复杂问题，追求真理和逻辑"
+    },
+    "ENTJ": {
+      "name": "指挥官",
+      "description": "大胆、富有想象力且意志强大的领导者",
+      "strengths": ["领导能力", "战略规划", "高效执行"],
+      "weaknesses": ["可能过于强势", "不擅长处理情感", "可能缺乏耐心"],
+      "career_matches": ["CEO", "管理者", "创业家"],
+      "work_style": "目标导向，喜欢领导和管理，追求效率"
+    },
+    "ENTP": {
+      "name": "辩论家",
+      "description": "聪明好奇的思考者，无法抗拒智力上的挑战",
+      "strengths": ["创新思维", "适应性强", "善于辩论"],
+      "weaknesses": ["可能注意力分散", "不擅长细节", "可能过于争强好胜"],
+      "career_matches": ["咨询顾问", "企业家", "创意总监"],
+      "work_style": "喜欢探索新想法，追求创新和变化"
+    },
+    "INFJ": {
+      "name": "提倡者",
+      "description": "安静而神秘，鼓舞人心且不知疲倦的理想主义者",
+      "strengths": ["洞察力强", "富有同情心", "坚持原则"],
+      "weaknesses": ["可能过于理想主义", "容易倦怠", "可能过于敏感"],
+      "career_matches": ["咨询师", "作家", "非营利组织"],
+      "work_style": "追求意义和使命，重视和谐和成长"
+    },
+    "INFP": {
+      "name": "调停者",
+      "description": "诗意，善良的利他主义者，总是热情地为正义事业提供帮助",
+      "strengths": ["创造力强", "富有同情心", "价值观驱动"],
+      "weaknesses": ["可能过于理想化", "不擅长实际操作", "可能过于敏感"],
+      "career_matches": ["艺术家", "心理咨询师", "作家"],
+      "work_style": "追求意义和价值，重视创造性和表达"
+    },
+    "ENFJ": {
+      "name": "主人公",
+      "description": "有魅力和鼓舞人心的领导者，有使听众着迷的能力",
+      "strengths": ["善于领导", "富有同情心", "沟通能力强"],
+      "weaknesses": ["可能过于无私", "可能过于理想化", "可能过于敏感"],
+      "career_matches": ["教师", "人力资源", "销售"],
+      "work_style": "以人为本，追求和谐和成长"
+    },
+    "ENFP": {
+      "name": "竞选者",
+      "description": "有热情，有创造力爱社交的自由人，总能找到理由微笑",
+      "strengths": ["创造力强", "社交能力强", "热情洋溢"],
+      "weaknesses": ["可能注意力分散", "可能过于情绪化", "可能缺乏执行力"],
+      "career_matches": ["记者", "演员", "公关"],
+      "work_style": "喜欢与人互动，追求创造性和自由"
+    },
+    "ISTJ": {
+      "name": "物流师",
+      "description": "实际且注重事实的个人，可靠性不容怀疑",
+      "strengths": ["诚实可靠", "注重细节", "责任心强"],
+      "weaknesses": ["可能过于保守", "可能过于固执", "可能不擅长变化"],
+      "career_matches": ["会计师", "律师", "工程师"],
+      "work_style": "注重细节和规则，追求稳定和可靠"
+    },
+    "ISFJ": {
+      "name": "守卫者",
+      "description": "非常专注而温暖的守护者，时刻准备保护爱着的人们",
+      "strengths": ["支持性强", "注重细节", "可靠稳定"],
+      "weaknesses": ["可能过于谦虚", "可能过于利他", "可能不擅长变化"],
+      "career_matches": ["护士", "教师", "行政"],
+      "work_style": "以人为本，注重细节和服务"
+    },
+    "ESTJ": {
+      "name": "总经理",
+      "description": "出色的管理者，在管理事情或人的时候无与伦比",
+      "strengths": ["管理能力强", "高效务实", "责任心强"],
+      "weaknesses": ["可能过于强势", "可能不擅长情感", "可能过于固执"],
+      "career_matches": ["高管", "军官", "项目经理"],
+      "work_style": "注重效率和结果，追求秩序和规则"
+    },
+    "ESFJ": {
+      "name": "执政官",
+      "description": "极度关心他人，社交能力强，总是热心帮助他人",
+      "strengths": ["社交能力强", "支持性强", "责任心强"],
+      "weaknesses": ["可能过于在意他人看法", "可能过于利他", "可能不擅长冲突"],
+      "career_matches": ["销售", "教师", "护理"],
+      "work_style": "以人为本，追求和谐和服务"
+    },
+    "ISTP": {
+      "name": "鉴赏家",
+      "description": "大胆而实际的实验家，擅长使用各种工具",
+      "strengths": ["适应性强", "动手能力强", "冷静客观"],
+      "weaknesses": ["可能过于独立", "可能不擅长情感", "可能过于冒险"],
+      "career_matches": ["工程师", "技师", "飞行员"],
+      "work_style": "注重实践和技能，追求自由和灵活"
+    },
+    "ISFP": {
+      "name": "探险家",
+      "description": "灵活有魅力的艺术家，时刻准备着探索和体验新事物",
+      "strengths": ["创造力强", "适应性强", "富有艺术感"],
+      "weaknesses": ["可能过于敏感", "可能缺乏长远规划", "可能过于独立"],
+      "career_matches": ["艺术家", "设计师", "兽医"],
+      "work_style": "追求自由和创造，重视体验和美感"
+    },
+    "ESTP": {
+      "name": "企业家",
+      "description": "聪明，精力充沛善于感知的人，享受生活在边缘",
+      "strengths": ["适应性强", "行动力强", "善于应对危机"],
+      "weaknesses": ["可能过于冲动", "可能缺乏长远规划", "可能过于冒险"],
+      "career_matches": ["企业家", "销售", "急救"],
+      "work_style": "注重行动和结果，追求刺激和挑战"
+    },
+    "ESFP": {
+      "name": "表演者",
+      "description": "自然的表演者，生活充满激情，让周围的人也快乐",
+      "strengths": ["热情洋溢", "社交能力强", "适应性强"],
+      "weaknesses": ["可能过于冲动", "可能缺乏长远规划", "可能过于敏感"],
+      "career_matches": ["演员", "销售", "导游"],
+      "work_style": "以人为本，追求快乐和体验"
+    }
+  }
+}

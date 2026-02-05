@@ -73,6 +73,81 @@ npx skills add https://github.com/huaguoruo/skills/tree/main/persona-interview
 
 然后 AI 会开始对你进行深度访谈。
 
+---
+
+## 🆕 新功能：简历 + MBTI 分析
+
+除了访谈，你现在可以通过简历和 MBTI 测试为 AI 提供更多背景信息。
+
+### 1. 简历解析
+
+```bash
+# 安装依赖
+pip install -r requirements.txt
+
+# 解析简历（支持 PDF、DOCX、Markdown）
+python scripts/resume_parser.py your_resume.pdf
+
+# 输出：your_resume_parsed.json
+```
+
+**提取的信息**：
+- 工作经历
+- 教育背景
+- 技能清单
+- 项目经验
+
+### 2. MBTI 分析
+
+```bash
+# 方式 1：交互式测试
+python scripts/mbti_analyzer.py test
+
+# 方式 2：直接输入已知类型
+python scripts/mbti_analyzer.py input INTJ
+
+# 输出：mbti_INTJ.json
+```
+
+**分析内容**：
+- MBTI 类型（INTJ、ENFP 等）
+- 优势与劣势
+- 适合的工作风格
+- 职业倾向
+
+### 3. 生成初步画像
+
+```bash
+# 整合简历和 MBTI，生成初步画像
+python scripts/persona_generator.py \
+  --resume your_resume_parsed.json \
+  --mbti mbti_INTJ.json \
+  --output persona.json
+```
+
+**初步画像包含**：
+- 基本信息
+- MBTI 档案
+- 职业背景分析
+- 技能清单
+- 初步洞察
+
+### 4. 访谈中使用
+
+在访谈开始时，告诉 AI：
+
+```
+我已经做了简历分析和 MBTI 测试，这是初步画像：[上传 persona.json]
+请基于这些信息开始访谈。
+```
+
+AI 会：
+- 参考你的简历和 MBTI 数据
+- 询问相关问题来验证假设
+- 发现简历/MBTI 与实际行为的差异
+
+---
+
 ## 📋 访谈流程
 
 访谈大约经历 **10-15 轮对话**，分为四个阶段：

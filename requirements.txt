@@ -1,0 +1,9 @@
+# Persona Interview Skill - Python 依赖
+
+# 简历解析
+PyPDF2>=3.0.0           # PDF 解析
+python-docx>=1.0.0      # DOCX 解析
+
+# 可选依赖（用于更强大的功能）
+# openai>=1.0.0         # 使用 OpenAI API 进行更准确的简历提取
+# anthropic>=0.18.0     # 使用 Claude API 进行更准确的简历提取
